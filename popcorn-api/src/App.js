@@ -19,7 +19,7 @@ class App extends Component {
     })
   }
   componentDidMount () {
-    const url = `${URL.API_BASE}discover/movie?language=fr&${URL.API_KEY}`
+    const url = `${URL.API_BASE}discover/movie?language=fr&include_adult=false&${URL.API_KEY}`
     fetch(url)
       .then(res => res.json())
       .then(movies => {

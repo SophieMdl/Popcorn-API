@@ -15,7 +15,7 @@ const MovieDetails = ({ movie }) => {
         </div>
         <div className="row">
           <div className="col s12">
-            <Video videoId={movie.youtubeKey} />
+            {movie.youtubeKey !== undefined ? <Video videoId={movie.youtubeKey} /> : <div>Pas de vidéo pour ce film</div>}
           </div>
         </div>
       </div>
