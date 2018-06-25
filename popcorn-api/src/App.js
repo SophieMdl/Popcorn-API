@@ -6,6 +6,8 @@ import { store, URL } from './store'
 import SearchBar from './components/SearchBar.js'
 import MovieList from './components/MoviesList.js'
 import MovieDetails from './components/MovieDetails.js'
+import 'materialize-css'
+import 'materialize-css/dist/css/materialize.min.css'
 
 class App extends Component {
   constructor () {

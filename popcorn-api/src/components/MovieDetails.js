@@ -13,7 +13,7 @@ const MovieDetails = ({ movie }) => {
           <h5>{movie.title}</h5>
           <p>{movie.overview}</p>
         </div>
-        <div class="row">
+        <div className="row">
           <div className="col s12">
             <Video videoId={movie.youtubeKey} />
           </div>
