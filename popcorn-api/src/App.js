@@ -4,9 +4,9 @@ import actions from './actions/file.js'
 import { store, URL } from './store'
 /* Components */
 import SearchBar from './components/SearchBar.js'
-import MovieList from './components/MoviesList.js'
-import MovieDetails from './components/MovieDetails.js'
-import 'materialize-css'
+import MovieList from './containers/MoviesList.js'
+import MovieDetails from './containers/MovieDetails.js'
+
 import 'materialize-css/dist/css/materialize.min.css'
 
 class App extends Component {
@@ -15,7 +15,6 @@ class App extends Component {
     this.state = store.getState()
     store.subscribe(() => {
       this.setState(store.getState())
-      console.log(store.getState())
     })
   }
   componentDidMount () {
@@ -24,15 +23,16 @@ class App extends Component {
       .then(res => res.json())
       .then(movies => {
         actions.loadMovies(movies.results)
-        actions.getVideoKey(this.state.currentMovie)
       })
   }
   render () {
+    console.log('currentMovie', this.state.currentMovie)
+    console.log('MovieList', this.state.moviesList)
     return (
       <div>
-        <SearchBar />
         <div className="row">
           <div className="col s8">
+            <SearchBar />
             <MovieDetails movie={this.state.currentMovie} />
           </div>
           <div className="col s4">

@@ -1,5 +1,3 @@
-import actions from './../actions/file.js'
-
 const initialState = {
   moviesList: [],
   currentMovie: {}
@@ -13,7 +11,7 @@ const reducer = (state = initialState, action) => {
         currentMovie: action.movies[0]
       }
     case 'CHANGE_MOVIE':
-      actions.getVideoKey(action.movie)
+    console.log('action.movie', action.movie);
       return {
         ...state,
         currentMovie: action.movie
@@ -28,7 +26,6 @@ const reducer = (state = initialState, action) => {
       const searchedMovie = state.moviesList.find(m =>
         m.title === action.searchText
       )
-      actions.getVideoKey(searchedMovie)
       return {
         ...state,
         currentMovie: searchedMovie
