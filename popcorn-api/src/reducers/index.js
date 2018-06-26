@@ -11,7 +11,6 @@ const reducer = (state = initialState, action) => {
         currentMovie: action.movies[0]
       }
     case 'CHANGE_MOVIE':
-    console.log('action.movie', action.movie);
       return {
         ...state,
         currentMovie: action.movie
@@ -26,6 +25,7 @@ const reducer = (state = initialState, action) => {
       const searchedMovie = state.moviesList.find(m =>
         m.title === action.searchText
       )
+      if (searchedMovie === undefined) return
       return {
         ...state,
         currentMovie: searchedMovie

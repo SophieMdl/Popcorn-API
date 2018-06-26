@@ -26,13 +26,11 @@ class App extends Component {
       })
   }
   render () {
-    console.log('currentMovie', this.state.currentMovie)
-    console.log('MovieList', this.state.moviesList)
     return (
       <div>
         <div className="row">
           <div className="col s8">
-            <SearchBar />
+            <SearchBar searchMovie={actions.searchMovie}/>
             <MovieDetails movie={this.state.currentMovie} />
           </div>
           <div className="col s4">

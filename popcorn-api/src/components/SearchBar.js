@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import actions from '../actions/file'
 
 class SearchBar extends Component {
     state = {
@@ -10,7 +9,7 @@ class SearchBar extends Component {
       this.setState({ searchText: event.target.value })
     }
     handleOnClick = event => {
-      actions.searchMovie(this.state.searchText)
+      this.props.searchMovie(this.state.searchText)
     }
     render () {
       return (
