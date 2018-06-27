@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 
 class SearchBar extends Component {
     state = {
-      searchText: '',
-      placeHolder: 'Search'
+      searchText: ''
     }
     handleChange = event => {
       this.setState({ searchText: event.target.value })
@@ -14,7 +13,7 @@ class SearchBar extends Component {
     render () {
       return (
         <div className="row input-field">
-          <input className="validate col s8" placeholder={this.state.placeHolder} onChange={this.handleChange} />
+          <input className="validate col s8" placeholder='search' onChange={this.handleChange} />
           <a className="waves-effect waves-light btn-small" onClick={this.handleOnClick}><i className="material-icons left">search</i></a>
         </div>
       )
