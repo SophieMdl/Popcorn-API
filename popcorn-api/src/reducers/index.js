@@ -1,15 +1,21 @@
 const initialState = {
   moviesList: [],
   currentMovie: {},
-  searchText : ""
+  moviesTitle: [],
+  searchText: ''
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOAD_MOVIES':
+      const moviesTitle = []
+      for (let movie of action.movies) {
+        moviesTitle.push(movie.title)
+      }
       return {
         moviesList: action.movies,
-        currentMovie: action.movies[0]
+        currentMovie: action.movies[0],
+        moviesTitle: moviesTitle
       }
     case 'CHANGE_MOVIE':
       return {
@@ -32,6 +38,7 @@ const reducer = (state = initialState, action) => {
         m.title === action.searchText
       )
       if (searchedMovie === undefined) return
+      console.log(action.e)
       return {
         ...state,
         currentMovie: searchedMovie

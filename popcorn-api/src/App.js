@@ -11,7 +11,7 @@ import MovieDetails from './containers/MovieDetails.js'
 import 'materialize-css/dist/css/materialize.min.css'
 
 class App extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = store.getState()
     store.subscribe(() => {
@@ -31,7 +31,7 @@ class App extends Component {
       <div>
         <div className="row">
           <div className="col s8">
-            <SearchBar searchText={this.state.searchText} searchMovie={actions.searchMovie} changeTextSearch={actions.changeTextSearch} />
+            <SearchBar moviesTitles={this.state.moviesTitle} searchText={this.state.searchText} searchMovie={actions.searchMovie} changeTextSearch={actions.changeTextSearch} />
             <MovieDetails movie={this.state.currentMovie} />
           </div>
           <div className="col s4">
