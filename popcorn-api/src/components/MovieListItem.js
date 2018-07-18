@@ -1,5 +1,5 @@
 import React from 'react'
-import { URL } from '../store'
+import { URL } from '../url'
 
 const MovieListItem = ({movie, changeCurrentMovie}) => {
   return (

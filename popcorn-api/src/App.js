@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-/* Redux */
+/* My librairies */
 import actions from './actions/file.js'
-import { store, URL } from './store'
+import { store } from './store'
+import { URL } from './url'
 /* Components */
 import SearchBar from './components/SearchBar.js'
 import MovieList from './containers/MoviesList.js'
@@ -30,7 +31,7 @@ class App extends Component {
       <div>
         <div className="row">
           <div className="col s8">
-            <SearchBar searchMovie={actions.searchMovie}/>
+            <SearchBar searchText={this.state.searchText} searchMovie={actions.searchMovie} changeTextSearch={actions.changeTextSearch} />
             <MovieDetails movie={this.state.currentMovie} />
           </div>
           <div className="col s4">

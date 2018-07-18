@@ -7,7 +7,10 @@ const MovieList = ({ movies }) => {
     <div>
       <h5>Catalogue</h5>
       <ul>
-        {movies.map(movie => <MovieListItem movie={movie} key={movie.id} changeCurrentMovie={actions.changeCurrentMovie} />)}
+        {movies.map(movie => <MovieListItem
+          movie={movie}
+          key={movie.id}
+          changeCurrentMovie={actions.changeCurrentMovie} />)}
       </ul>
     </div>
   )

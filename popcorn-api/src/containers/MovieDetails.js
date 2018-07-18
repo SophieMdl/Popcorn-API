@@ -1,5 +1,5 @@
 import React from 'react'
-import { URL } from '../store'
+import { URL } from '../url'
 import Video from '../components/Video.js'
 import actions from '../actions/file.js'
 

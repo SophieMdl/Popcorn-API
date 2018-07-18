@@ -1,6 +1,7 @@
 const initialState = {
   moviesList: [],
-  currentMovie: {}
+  currentMovie: {},
+  searchText : ""
 }
 
 const reducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         currentMovie: { ...state.currentMovie, youtubeKey }
+      }
+    case 'CHANGE_TEXT_SEARCH':
+      return {
+        ...state,
+        searchText: action.currentSearchText
       }
     case 'SEARCH_MOVIE':
       const searchedMovie = state.moviesList.find(m =>
