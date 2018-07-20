@@ -1,7 +1,7 @@
 import React from 'react'
 import { URL } from '../url'
 import Video from '../components/Video.js'
-import actions from '../actions/file.js'
+import actions from '../actions/actions.js'
 
 class MovieDetails extends React.Component {
   componentDidUpdate (prevProps) {

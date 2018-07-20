@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders MovieListItem html correctly 1`] = `
+<li
+  className="movie-item row"
+  onClick={[Function]}
+>
+  <img
+    alt="movie Title"
+    className="col s4"
+    src="http://image.tmdb.org/t/p/w500//dACJtXkABwEBdX3FUrpHgJdlu9r.jpg"
+  />
+  <h6
+    className="col s8"
+  >
+    movie Title
+  </h6>
+</li>
+`;

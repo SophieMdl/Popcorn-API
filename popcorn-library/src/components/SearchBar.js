@@ -1,7 +1,6 @@
 import React from 'react'
 
 const SearchBar = ({ moviesTitles, searchText, changeTextSearch, searchMovie }) => {
-  console.log(searchText)
   return (
     <div className="row input-field">
       <form onSubmit={(e) => { e.preventDefault(); searchMovie(searchText) }}>

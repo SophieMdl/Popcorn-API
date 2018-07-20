@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders SearchBar html 1`] = `
+<div
+  className="row input-field"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="col s8"
+      list="title-movie"
+      onChange={[Function]}
+      placeholder="search"
+      value="title2"
+    />
+    <datalist
+      id="title-movie"
+    >
+      <option
+        value="test"
+      />
+      <option
+        value="title2"
+      />
+      <option
+        value="title3"
+      />
+    </datalist>
+    <button
+      className="waves-effect waves-light btn-small"
+    >
+      <i
+        className="material-icons left"
+      >
+        search
+      </i>
+    </button>
+  </form>
+</div>
+`;
