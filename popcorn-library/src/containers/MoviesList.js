@@ -1,10 +1,14 @@
 import React from 'react'
 import MovieListItem from '../components/MovieListItem.js'
 import actions from '../actions/actions.js'
+import styled from 'styled-components'
 
 const MovieList = ({ movies }) => {
+  const MoviesList = styled.div`
+    background-color : #191c1f;
+  `
   return (
-    <div>
+    <MoviesList>
       <h5>Catalogue</h5>
       <ul>
         {movies.map(movie => <MovieListItem
@@ -12,7 +16,7 @@ const MovieList = ({ movies }) => {
           key={movie.id}
           changeCurrentMovie={actions.changeCurrentMovie} />)}
       </ul>
-    </div>
+    </MoviesList>
   )
 }
 

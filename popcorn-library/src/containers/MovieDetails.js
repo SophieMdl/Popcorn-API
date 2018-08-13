@@ -2,9 +2,24 @@ import React from 'react'
 import { URL } from '../url'
 import Video from '../components/Video.js'
 import actions from '../actions/actions.js'
+import styled from 'styled-components'
+
+const MovieResume = styled.div`
+  display : flex;
+`
+const MovieImg = styled.div`
+  flex: 1;
+`
+const MovieText = styled.div`
+  flex : 3;
+  margin : 0 1em;
+`
+const MovieDescription = styled.p`
+  font-weight : 300;
+`
 
 class MovieDetails extends React.Component {
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
     const movieId = this.props.movie.id
     if (movieId === prevProps.movie.id) return
     const url = `${URL.API_BASE}movie/${movieId}?language=fr&include_adult=false&${URL.API_KEY}&append_to_response=videos`
@@ -17,24 +32,21 @@ class MovieDetails extends React.Component {
         }
       })
   }
-  render () {
+  render() {
     const movie = this.props.movie
+
     return (
       <div>
-        <div className="row">
-          <div className="col s4">
-            <img width="100%" height="auto" alt={movie.title} src={`${URL.IMAGE_BASE}${movie.poster_path}`} />
-          </div>
-          <div className="col s8">
+        <MovieResume>
+          <MovieImg>
+            <img width="100%" alt={movie.title} src={`${URL.IMAGE_BASE}${movie.poster_path}`} />
+          </MovieImg>
+          <MovieText>
             <h5>{movie.title}</h5>
-            <p>{movie.overview}</p>
-          </div>
-          <div className="row">
-            <div className="col s12">
-              {movie.youtubeKey !== undefined ? <Video videoId={movie.youtubeKey} /> : <div>Pas de vidéo pour ce film</div>}
-            </div>
-          </div>
-        </div>
+            <MovieDescription>{movie.overview}</MovieDescription>
+          </MovieText>
+        </MovieResume>
+        {movie.youtubeKey !== undefined ? <Video videoId={movie.youtubeKey} /> : <div>Pas de vidéo pour ce film</div>}
       </div>
     )
   }
