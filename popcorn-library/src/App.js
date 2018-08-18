@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 /* My librairies */
 import actions from './actions/actions.js'
 import { store } from './store'
@@ -9,14 +8,8 @@ import { URL } from './url'
 import MovieList from './containers/MoviesList.js'
 import MovieDetails from './containers/MovieDetails.js'
 import Header from './containers/Header.js'
-
+import './theme/globalStyle.js'
 import 'materialize-css/dist/css/materialize.min.css'
-
-const MainContent = styled.div`
-  background-color : #222b31;
-  color : #fff;
-  font-family : Poppins, sans-serif;
-`
 
 class App extends Component {
   constructor() {
@@ -37,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <MainContent>
+      <di>
         <div className="row">
           <Header
             moviesTitles={this.state.moviesTitle}
@@ -48,7 +41,7 @@ class App extends Component {
             <MovieList movies={this.state.moviesList} />
           </div>
         </div>
-      </MainContent>
+      </di>
     )
   }
 }
