@@ -1,8 +1,9 @@
 import React from 'react'
+import { SearchBarStyled } from '../style/searchBarStyled.js'
 
 const SearchBar = ({ moviesTitles, searchText, changeTextSearch, searchMovie }) => {
   return (
-    <div className="row input-field">
+    <SearchBarStyled className="row input-field">
       <form onSubmit={(e) => { e.preventDefault(); searchMovie(searchText) }}>
         <input list="title-movie"
           placeholder='search'
@@ -19,7 +20,7 @@ const SearchBar = ({ moviesTitles, searchText, changeTextSearch, searchMovie }) 
           <i className="material-icons left">search</i>
         </button>
       </form>
-    </div>
+    </SearchBarStyled>
   )
 }
 

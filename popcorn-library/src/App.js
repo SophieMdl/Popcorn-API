@@ -4,10 +4,10 @@ import actions from './actions/actions.js'
 import { store } from './store'
 import { URL } from './url'
 /* Components */
-
 import MovieList from './containers/MoviesList.js'
 import MovieDetails from './containers/MovieDetails.js'
 import Header from './containers/Header.js'
+/* Styles */
 import './theme/globalStyle.js'
 import 'materialize-css/dist/css/materialize.min.css'
 
@@ -30,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <di>
+      <div>
         <div className="row">
           <Header
             moviesTitles={this.state.moviesTitle}
@@ -41,7 +41,7 @@ class App extends Component {
             <MovieList movies={this.state.moviesList} />
           </div>
         </div>
-      </di>
+      </div>
     )
   }
 }

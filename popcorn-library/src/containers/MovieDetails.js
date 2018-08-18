@@ -2,24 +2,11 @@ import React from 'react'
 import { URL } from '../url'
 import Video from '../components/Video.js'
 import actions from '../actions/actions.js'
-import styled from 'styled-components'
-
-const MovieResume = styled.div`
-  display : flex;
-`
-const MovieImg = styled.div`
-  flex: 1;
-`
-const MovieText = styled.div`
-  flex : 3;
-  margin : 0 1em;
-`
-const MovieDescription = styled.p`
-  font-weight : 300;
-`
+//import styled from 'styled-components'
+import {MovieResume, MovieImg, MovieText, MovieDescription} from '../style/movieDetailsStyle.js'
 
 class MovieDetails extends React.Component {
-  componentDidUpdate(prevProps) {
+  componentDidUpdate (prevProps) {
     const movieId = this.props.movie.id
     if (movieId === prevProps.movie.id) return
     const url = `${URL.API_BASE}movie/${movieId}?language=fr&include_adult=false&${URL.API_KEY}&append_to_response=videos`
@@ -32,7 +19,7 @@ class MovieDetails extends React.Component {
         }
       })
   }
-  render() {
+  render () {
     const movie = this.props.movie
 
     return (
