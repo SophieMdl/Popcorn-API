@@ -2,7 +2,7 @@ import React from 'react'
 import { URL } from '../url'
 import Video from '../components/Video.js'
 import actions from '../actions/actions.js'
-//import styled from 'styled-components'
+// import styled from 'styled-components'
 import {MovieResume, MovieImg, MovieText, MovieDescription} from '../style/movieDetailsStyle.js'
 
 class MovieDetails extends React.Component {

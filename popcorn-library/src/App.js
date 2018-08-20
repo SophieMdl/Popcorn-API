@@ -4,7 +4,6 @@ import actions from './actions/actions.js'
 import { store } from './store'
 import { URL } from './url'
 /* Components */
-import MovieList from './containers/MoviesList.js'
 import MovieDetails from './containers/MovieDetails.js'
 import Header from './containers/Header.js'
 import Home from './containers/Home.js'
@@ -13,14 +12,14 @@ import './theme/globalStyle.js'
 import 'materialize-css/dist/css/materialize.min.css'
 
 class App extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = store.getState()
     store.subscribe(() => {
       this.setState(store.getState())
     })
   }
-  componentDidMount() {
+  componentDidMount () {
     const url = `${URL.API_BASE}discover/movie?language=fr&include_adult=false&${URL.API_KEY}`
     fetch(url)
       .then(res => res.json())
@@ -29,7 +28,7 @@ class App extends Component {
       })
   }
 
-  render() {
+  render () {
     const state = this.state
     console.log(state.currentMovie)
     return (
@@ -43,9 +42,6 @@ class App extends Component {
             ? <MovieDetails movie = {state.currentMovie} />
             : <Home randomMovies = {state.randomMovies} />
           }
-          {/* <div className="col s4">
-            <MovieList movies={state.moviesList} />
-          </div> */}
         </div>
       </div>
     )

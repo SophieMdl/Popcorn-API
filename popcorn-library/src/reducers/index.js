@@ -21,8 +21,8 @@ const reducer = (state = initialState, action) => {
         moviesTitle.push(movie.title)
       }
       return {
-        //moviesList: action.movies,
-        //currentMovie: action.movies[0],
+        // moviesList: action.movies,
+        // currentMovie: action.movies[0],
         moviesTitle: moviesTitle,
         randomMovies: randomMovies
       }

@@ -26,7 +26,7 @@
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint . --ignore-pattern '/coverage/'",
     "lint:css": "stylelint 'src/style/**/*.css'",
-    "lint:fix": "eslint --fix . && stylelint --fix 'src/style/*.css'"
+    "lint:fix": "eslint --fix 'src/*/*.js' . && stylelint --fix 'src/style/*.css'"
   },
   "devDependencies": {
     "eslint": "^5.0.0",
