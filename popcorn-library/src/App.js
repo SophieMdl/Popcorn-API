@@ -7,6 +7,7 @@ import { URL } from './url'
 import MovieList from './containers/MoviesList.js'
 import MovieDetails from './containers/MovieDetails.js'
 import Header from './containers/Header.js'
+import Home from './containers/Home.js'
 /* Styles */
 import './theme/globalStyle.js'
 import 'materialize-css/dist/css/materialize.min.css'
@@ -29,17 +30,22 @@ class App extends Component {
   }
 
   render() {
+    const state = this.state
+    console.log(state.currentMovie)
     return (
       <div>
         <div className="row">
           <Header
-            moviesTitles={this.state.moviesTitle}
-            searchText={this.state.searchText}
+            moviesTitles={state.moviesTitle}
+            searchText={state.searchText}
           />
-          <MovieDetails movie={this.state.currentMovie} />
-          <div className="col s4">
-            <MovieList movies={this.state.moviesList} />
-          </div>
+          {state.currentMovie
+            ? <MovieDetails movie = {state.currentMovie} />
+            : <Home randomMovies = {state.randomMovies} />
+          }
+          {/* <div className="col s4">
+            <MovieList movies={state.moviesList} />
+          </div> */}
         </div>
       </div>
     )

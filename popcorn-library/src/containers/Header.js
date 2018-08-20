@@ -1,16 +1,13 @@
 import React from 'react'
-import { HeaderStyled, LogoStyled, H1Styled, ImgStyled } from '../style/headerStyle.js'
 import SearchBar from '../components/SearchBar.js'
 import actions from '../actions/actions.js'
-import logoImg from '../images/popcorn2.svg'
+import Logo from '../components/Logo.js'
+import { HeaderStyled } from '../style/headerStyle.js'
 
 const Header = (props) => {
   return (
     <HeaderStyled>
-      <LogoStyled>
-        <ImgStyled src={logoImg} alt='popcorn-library' />
-        <H1Styled>Popcorn Libary</H1Styled>
-      </LogoStyled>
+      <Logo changeCurrentMovie={actions.changeCurrentMovie} />
       <SearchBar
         moviesTitles={props.moviesTitles}
         searchText={props.searchText}

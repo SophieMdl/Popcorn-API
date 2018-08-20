@@ -1,21 +1,30 @@
 const initialState = {
   moviesList: [],
-  currentMovie: {},
+  currentMovie: undefined,
   moviesTitle: [],
-  searchText: ''
+  searchText: '',
+  randomMovies: []
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOAD_MOVIES':
       const moviesTitle = []
+      const randomMovies = []
+      for (let i = 0; randomMovies.length < 10; i++) {
+        const n = Math.floor(Math.random() * action.movies.length)
+        if (!randomMovies.some(m => m.id === action.movies[n].id)) {
+          randomMovies.push(action.movies[n])
+        }
+      }
       for (let movie of action.movies) {
         moviesTitle.push(movie.title)
       }
       return {
-        moviesList: action.movies,
-        currentMovie: action.movies[0],
-        moviesTitle: moviesTitle
+        //moviesList: action.movies,
+        //currentMovie: action.movies[0],
+        moviesTitle: moviesTitle,
+        randomMovies: randomMovies
       }
     case 'CHANGE_MOVIE':
       return {
