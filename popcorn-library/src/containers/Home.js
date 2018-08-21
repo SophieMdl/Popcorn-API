@@ -1,17 +1,23 @@
 import React from 'react'
-import RandomMovie from '../components/RandomMovie.js'
-import { MoviesGrid, H2Styled } from '../style/homeStyled.js'
+import HomeMovie from '../components/HomeMovie.js'
+import { MoviesGrid, H2Styled, ContentHome } from '../style/homeStyle.js'
 
-const Home = ({ randomMovies }) => {
+const Home = ({ randomMovies, highRatedMovies }) => {
   return (
-    <div>
-      <H2Styled>Random Movies</H2Styled>
+    <ContentHome>
+      <H2Styled>Les mieux notés</H2Styled>
       <MoviesGrid>
-        {randomMovies.map(randomMovie =>
-          <RandomMovie key={randomMovie.id} movie={randomMovie} />
+        {highRatedMovies.map(movie =>
+          <HomeMovie key={movie.id} movie={movie} />
         )}
       </MoviesGrid>
-    </div>
+      <H2Styled>Découvrez le catalogue</H2Styled>
+      <MoviesGrid>
+        {randomMovies.map(randomMovie =>
+          <HomeMovie key={randomMovie.id} movie={randomMovie} />
+        )}
+      </MoviesGrid>
+    </ContentHome>
   )
 }
 

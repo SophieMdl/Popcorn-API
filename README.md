@@ -7,8 +7,8 @@ React, Redux
 
 ## Résumé
 
-Projet perso d'affichage de film
+Projet perso de librairie de films. Les films sont récupérés depuis l'API the movieDB : https://www.themoviedb.org/?language=fr
 
 ## Start
 
-Pour lancer le projet, se placer à la racine et faire "npm start"
+Pour lancer le projet, se placer à la racine et faire la commande "npm start"

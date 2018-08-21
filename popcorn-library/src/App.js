@@ -40,7 +40,7 @@ class App extends Component {
           />
           {state.currentMovie
             ? <MovieDetails movie = {state.currentMovie} />
-            : <Home randomMovies = {state.randomMovies} />
+            : <Home randomMovies = {state.randomMovies} highRatedMovies={state.highRatedMovies} />
           }
         </div>
       </div>

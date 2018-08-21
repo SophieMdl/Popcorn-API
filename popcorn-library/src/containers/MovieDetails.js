@@ -26,7 +26,7 @@ class MovieDetails extends React.Component {
       <div>
         <MovieResume>
           <MovieImg>
-            <img width="100%" alt={movie.title} src={`${URL.IMAGE_BASE}${movie.poster_path}`} />
+            <img alt={movie.title} src={`${URL.IMAGE_BASE}${movie.poster_path}`} />
           </MovieImg>
           <MovieText>
             <h5>{movie.title}</h5>

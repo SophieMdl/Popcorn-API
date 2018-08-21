@@ -6,7 +6,7 @@ const Logo = ({ movie, changeCurrentMovie }) => {
   return (
     <LogoStyled onClick={() => changeCurrentMovie(undefined)}>
       <ImgStyled src={logoImg} alt='popcorn-library' />
-      <H1Styled>Popcorn Libary</H1Styled>
+      <H1Styled>Popcorn Library</H1Styled>
     </LogoStyled>
   )
 }

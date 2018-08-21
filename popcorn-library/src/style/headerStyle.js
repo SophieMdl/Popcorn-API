@@ -9,6 +9,7 @@ export const LogoStyled = styled.div`
   flex : 1;
   text-align: center;
   background-color : #f83745;
+  cursor : pointer;
 `
 export const ImgStyled = styled.img`
   display : inline-block;
@@ -21,5 +22,5 @@ export const ImgStyled = styled.img`
 export const H1Styled = styled.h1`
   display : inline-block;
   vertical-align: middle;
-  font-size : 2.1rem;
+  font-size : 1.8rem;
 `
