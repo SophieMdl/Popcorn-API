@@ -4,7 +4,8 @@ const initialState = {
   moviesTitle: [],
   searchText: '',
   randomMovies: [],
-  highRatedMovies: []
+  highRatedMovies: [],
+  recommendedMovies: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -27,8 +28,8 @@ const reducer = (state = initialState, action) => {
         moviesTitle.push(movie.title)
       }
       return {
+        ...state,
         moviesList: action.movies,
-        // currentMovie: action.movies[0],
         moviesTitle: moviesTitle,
         randomMovies: randomMovies,
         highRatedMovies: highRatedMovies
@@ -38,11 +39,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         currentMovie: action.movie
       }
-    case 'APPLY_VIDEO':
-      const youtubeKey = action.youtubeKey
+    case 'UPDATE_MOVIE':
+      const youtubeKey = action.values[0].key
+      const recommendedMovies = action.values[1]
       return {
         ...state,
-        currentMovie: { ...state.currentMovie, youtubeKey }
+        currentMovie: { ...state.currentMovie, youtubeKey },
+        recommendedMovies: recommendedMovies
       }
     case 'CHANGE_TEXT_SEARCH':
       return {

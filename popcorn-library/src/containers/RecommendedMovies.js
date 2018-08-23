@@ -4,21 +4,21 @@ import actions from '../actions/actions.js'
 
 import styled from 'styled-components'
 
-const MovieList = ({ movies }) => {
-  const MoviesList = styled.div`
+const RecommendedMovies = ({ movies }) => {
+  const RecommendedMovies = styled.div`
     background-color : #191c1f;
   `
   return (
-    <MoviesList>
-      <h5>Catalogue</h5>
+    <RecommendedMovies>
+      <h5>Films similaires</h5>
       <ul>
         {movies.map(movie => <MovieListItem
           movie={movie}
           key={movie.id}
           changeCurrentMovie={actions.changeCurrentMovie} />)}
       </ul>
-    </MoviesList>
+    </RecommendedMovies>
   )
 }
 
-export default MovieList
+export default RecommendedMovies
