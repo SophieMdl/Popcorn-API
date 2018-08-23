@@ -8,7 +8,9 @@ import MovieDetails from './containers/MovieDetails.js'
 import Header from './containers/Header.js'
 import Home from './containers/Home.js'
 /* Styles */
+import { ThemeProvider } from 'styled-components'
 import './theme/globalStyle.js'
+import { darkTheme } from './theme/darkTheme.js'
 import 'materialize-css/dist/css/materialize.min.css'
 
 class App extends Component {
@@ -32,7 +34,7 @@ class App extends Component {
     const state = this.state
     console.log(state.currentMovie)
     return (
-      <div>
+      <ThemeProvider theme={darkTheme}>
         <div className="row">
           <Header
             moviesTitles={state.moviesTitle}
@@ -43,7 +45,7 @@ class App extends Component {
             : <Home randomMovies = {state.randomMovies} highRatedMovies={state.highRatedMovies} />
           }
         </div>
-      </div>
+      </ThemeProvider>
     )
   }
 }

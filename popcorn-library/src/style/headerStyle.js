@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 export const HeaderStyled = styled.div`
   display : flex;
-  background-color: #ff424f;
+  background-color: ${props => props.theme.primaryColor || null};
 `
 export const LogoStyled = styled.div`
   flex-grow : 0.25;
   flex : 1;
   text-align: center;
-  background-color : #f83745;
+  background-color : ${props => props.theme.secondaryColor || null};
   cursor : pointer;
 `
 export const ImgStyled = styled.img`
