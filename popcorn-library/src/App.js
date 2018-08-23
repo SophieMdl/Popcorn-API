@@ -32,7 +32,6 @@ class App extends Component {
 
   render () {
     const state = this.state
-    console.log(state.currentMovie)
     return (
       <ThemeProvider theme={darkTheme}>
         <div className="row">

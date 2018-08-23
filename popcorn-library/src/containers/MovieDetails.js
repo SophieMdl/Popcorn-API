@@ -3,25 +3,29 @@ import { URL } from '../url'
 import Video from '../components/Video.js'
 import actions from '../actions/actions.js'
 // import styled from 'styled-components'
-import {MovieResume, MovieImg, MovieText, MovieDescription} from '../style/movieDetailsStyle.js'
+import { MovieResume, MovieImg, MovieText, MovieDescription } from '../style/movieDetailsStyle.js'
 
 class MovieDetails extends React.Component {
-  componentDidUpdate (prevProps) {
+  componentShouldUpdate () {
+    return true
+  }
+  componentDidMount () {
     const movieId = this.props.movie.id
-    if (movieId === prevProps.movie.id) return
-    const url = `${URL.API_BASE}movie/${movieId}?language=fr&include_adult=false&${URL.API_KEY}&append_to_response=videos`
+    console.log('movieId', movieId)
+    const url = `${URL.API_BASE}movie/${movieId}/videos?${URL.API_KEY}&language=en`
     window.fetch(url)
       .then(res => res.json())
       .then(data => {
-        if (data.videos.results[0]) {
-          const youtubeKey = data.videos.results[0].key
+        if (data.results[0]) {
+          const youtubeKey = data.results[0].key
           actions.applyVideoToCurrentMovie(youtubeKey)
         }
       })
   }
-  render () {
-    const movie = this.props.movie
 
+  render() {
+    const movie = this.props.movie
+    console.log('movie.youtubeKey', movie.youtubeKey);
     return (
       <div>
         <MovieResume>
