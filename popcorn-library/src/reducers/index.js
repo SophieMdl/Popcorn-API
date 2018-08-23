@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
         moviesTitle.push(movie.title)
       }
       return {
-        // moviesList: action.movies,
+        moviesList: action.movies,
         // currentMovie: action.movies[0],
         moviesTitle: moviesTitle,
         randomMovies: randomMovies,
@@ -54,7 +54,6 @@ const reducer = (state = initialState, action) => {
         m.title === action.searchText
       )
       if (searchedMovie === undefined) return
-      console.log(action.e)
       return {
         ...state,
         currentMovie: searchedMovie
