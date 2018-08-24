@@ -13,12 +13,12 @@ const RecommendedMovies = ({ movies }) => {
   return (
     <RecommendedMovies>
       <h5>Films similaires</h5>
-      <ul>
+      <div>
         {movies.map(movie => <MovieListItem
           movie={movie}
           key={movie.id}
           changeCurrentMovie={actions.changeCurrentMovie} />)}
-      </ul>
+      </div>
     </RecommendedMovies>
   )
 }

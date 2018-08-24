@@ -6,8 +6,7 @@ import RecommendedMovies from '../containers/RecommendedMovies.js'
 import { MovieDetailsStyled, MovieResume, MovieImg, MovieText, MovieDescription } from '../style/movieDetailsStyle.js'
 
 class MovieDetails extends React.Component {
-
-  componentDidMount() {
+  componentDidMount () {
     const movieId = this.props.movie.id
     const urlRecommended = `${URL.API_BASE}movie/${movieId}/recommendations?${URL.API_KEY}&language=fr`
     const urlVideo = `${URL.API_BASE}movie/${movieId}/videos?${URL.API_KEY}&language=en`
@@ -49,7 +48,7 @@ class MovieDetails extends React.Component {
           <MovieText>
             <h5>{movie.title}</h5>
             <MovieDescription>{movie.overview}</MovieDescription>
-          {movie.youtubeKey !== undefined ? <Video videoId={movie.youtubeKey} /> : <div>Pas de vidéo pour ce film</div>}
+            {movie.youtubeKey !== undefined ? <Video videoId={movie.youtubeKey} /> : <div>Pas de vidéo pour ce film</div>}
           </MovieText>
         </MovieResume>
         <RecommendedMovies movies = {this.props.recommendedMovies}/>

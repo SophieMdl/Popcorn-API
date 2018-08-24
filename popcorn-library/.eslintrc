@@ -1,6 +1,10 @@
 {
   "extends": [
     "react-app",
-    "standard"
-  ]
+    "standard",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "rules": {
+    "jsx-a11y/href-no-hash": [0]
+  }
 }
