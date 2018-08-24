@@ -17,6 +17,7 @@ const youtubeKey = (movieId) => {
       })
   )
 }
+
 const recommendedMoviesArray = (movieId) => {
   const urlRecommended = `${URL.API_BASE}movie/${movieId}/recommendations?${URL.API_KEY}&language=fr`
   return new Promise(resolve =>
@@ -29,6 +30,7 @@ const recommendedMoviesArray = (movieId) => {
       })
   )
 }
+
 const loadDataVideo = movieId => Promise.all([
   youtubeKey(movieId),
   recommendedMoviesArray(movieId)
@@ -37,10 +39,8 @@ const loadDataVideo = movieId => Promise.all([
 })
 
 class MovieDetails extends React.Component {
-
   componentDidMount () {
-    const movieId = this.props.movie.id
-    loadDataVideo(movieId)
+    loadDataVideo(this.props.movie.id)
   }
 
   componentDidUpdate (prevProps) {
@@ -49,7 +49,7 @@ class MovieDetails extends React.Component {
     loadDataVideo(movieId)
   }
 
-  render() {
+  render () {
     const movie = this.props.movie
     return (
       <MovieDetailsStyled>
