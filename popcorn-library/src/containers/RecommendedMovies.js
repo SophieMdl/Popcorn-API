@@ -7,6 +7,8 @@ import styled from 'styled-components'
 const RecommendedMovies = ({ movies }) => {
   const RecommendedMovies = styled.div`
     background-color : #191c1f;
+    flex : 1;
+    padding : 2em 2em 0em 2em;
   `
   return (
     <RecommendedMovies>

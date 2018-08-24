@@ -1,10 +1,17 @@
 import styled from 'styled-components'
 
-export const MovieResume = styled.div`
+export const MovieDetailsStyled = styled.div`
 display : flex;
 `
-export const MovieImg = styled.div`
-flex: 1;
+
+export const MovieResume = styled.div`
+display : flex;
+flex : 3;
+padding : 2em;
+`
+export const MovieImg = styled.img`
+  max-height : 500px;
+  object-fit: contain;
 `
 export const MovieText = styled.div`
 flex : 3;

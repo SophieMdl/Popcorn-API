@@ -34,13 +34,13 @@ class App extends Component {
     const state = this.state
     return (
       <ThemeProvider theme={darkTheme}>
-        <div className="row">
+        <div>
           <Header
             moviesTitles={state.moviesTitle}
             searchText={state.searchText}
           />
           {state.currentMovie
-            ? <MovieDetails movie = {state.currentMovie} />
+            ? <MovieDetails movie = {state.currentMovie} recommendedMovies= {this.state.recommendedMovies} />
             : <Home randomMovies = {state.randomMovies} highRatedMovies={state.highRatedMovies} />
           }
         </div>
