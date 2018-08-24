@@ -30,7 +30,6 @@ const recommendedMoviesArray = (movieId) => {
       })
   )
 }
-
 const loadDataVideo = movieId => Promise.all([
   youtubeKey(movieId),
   recommendedMoviesArray(movieId)
