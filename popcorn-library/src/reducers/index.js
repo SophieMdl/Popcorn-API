@@ -40,8 +40,8 @@ const reducer = (state = initialState, action) => {
         currentMovie: action.movie
       }
     case 'UPDATE_MOVIE':
-      const youtubeKey = action.values[0].key
-      const recommendedMovies = action.values[1].splice(0, 5)
+      const youtubeKey = action.values[0].key || null
+      const recommendedMovies = action.values[1].splice(0, 5) || null
       return {
         ...state,
         currentMovie: { ...state.currentMovie, youtubeKey },

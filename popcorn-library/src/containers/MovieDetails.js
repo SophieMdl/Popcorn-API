@@ -5,41 +5,55 @@ import actions from '../actions/actions.js'
 import RecommendedMovies from '../containers/RecommendedMovies.js'
 import { MovieDetailsStyled, MovieResume, MovieImg, MovieText, MovieDescription } from '../style/movieDetailsStyle.js'
 
+const youtubeKey = (movieId) => {
+  const urlVideo = `${URL.API_BASE}movie/${movieId}/videos?${URL.API_KEY}&language=en`
+  return new Promise(resolve =>
+    window.fetch(urlVideo)
+      .then(res => res.json())
+      .then(data => {
+        if (data.results[0]) {
+          resolve(data.results[0])
+        }
+      })
+  )
+}
+const recommendedMoviesArray = (movieId) => {
+  const urlRecommended = `${URL.API_BASE}movie/${movieId}/recommendations?${URL.API_KEY}&language=fr`
+  return new Promise(resolve =>
+    window.fetch(urlRecommended)
+      .then(res => res.json())
+      .then(data => {
+        if (data.results) {
+          resolve(data.results)
+        }
+      })
+  )
+}
+
 class MovieDetails extends React.Component {
+
   componentDidMount () {
     const movieId = this.props.movie.id
-    const urlRecommended = `${URL.API_BASE}movie/${movieId}/recommendations?${URL.API_KEY}&language=fr`
-    const urlVideo = `${URL.API_BASE}movie/${movieId}/videos?${URL.API_KEY}&language=en`
-
-    const youtubeKey = () => {
-      return new Promise(resolve =>
-        window.fetch(urlVideo)
-          .then(res => res.json())
-          .then(data => {
-            if (data.results[0]) resolve(data.results[0])
-          })
-      )
-    }
-    const recommendedMoviesArray = () => {
-      return new Promise(resolve =>
-        window.fetch(urlRecommended)
-          .then(res => res.json())
-          .then(data => {
-            if (data.results) {
-              console.log('recommendedMoviesArray', data.results)
-              resolve(data.results)
-            }
-          })
-      )
-    }
     Promise.all([
-      youtubeKey(),
-      recommendedMoviesArray()
+      youtubeKey(movieId),
+      recommendedMoviesArray(movieId)
     ]).then(values => {
       actions.loadCurrentMovieData(values)
     })
   }
-  render () {
+
+  componentDidUpdate (prevProps) {
+    const movieId = this.props.movie.id
+    if (movieId === prevProps.movie.id) return
+    Promise.all([
+      youtubeKey(movieId),
+      recommendedMoviesArray(movieId)
+    ]).then(values => {
+      actions.loadCurrentMovieData(values)
+    })
+  }
+
+  render() {
     const movie = this.props.movie
     return (
       <MovieDetailsStyled>
@@ -51,7 +65,7 @@ class MovieDetails extends React.Component {
             {movie.youtubeKey !== undefined ? <Video videoId={movie.youtubeKey} /> : <div>Pas de vidéo pour ce film</div>}
           </MovieText>
         </MovieResume>
-        <RecommendedMovies movies = {this.props.recommendedMovies}/>
+        <RecommendedMovies movies={this.props.recommendedMovies} />
       </MovieDetailsStyled>
     )
   }
