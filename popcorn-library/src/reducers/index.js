@@ -57,6 +57,7 @@ const reducer = (state = initialState, action) => {
         m.title === action.searchText
       )
       if (searchedMovie === undefined) return
+      if (searchedMovie.title === state.currentMovie.title) return
       return {
         ...state,
         currentMovie: searchedMovie

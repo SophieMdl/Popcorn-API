@@ -29,28 +29,24 @@ const recommendedMoviesArray = (movieId) => {
       })
   )
 }
+const loadDataVideo = movieId => Promise.all([
+  youtubeKey(movieId),
+  recommendedMoviesArray(movieId)
+]).then(values => {
+  actions.loadCurrentMovieData(values)
+})
 
 class MovieDetails extends React.Component {
 
   componentDidMount () {
     const movieId = this.props.movie.id
-    Promise.all([
-      youtubeKey(movieId),
-      recommendedMoviesArray(movieId)
-    ]).then(values => {
-      actions.loadCurrentMovieData(values)
-    })
+    loadDataVideo(movieId)
   }
 
   componentDidUpdate (prevProps) {
     const movieId = this.props.movie.id
     if (movieId === prevProps.movie.id) return
-    Promise.all([
-      youtubeKey(movieId),
-      recommendedMoviesArray(movieId)
-    ]).then(values => {
-      actions.loadCurrentMovieData(values)
-    })
+    loadDataVideo(movieId)
   }
 
   render() {
