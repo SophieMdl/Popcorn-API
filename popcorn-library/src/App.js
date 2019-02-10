@@ -40,7 +40,7 @@ class App extends Component {
             searchText={state.searchText}
           />
           {state.currentMovie
-            ? <MovieDetails movie = {state.currentMovie} recommendedMovies= {this.state.recommendedMovies} />
+            ? <MovieDetails movie = {state.currentMovie} recommendedMovies= {state.recommendedMovies} />
             : <Home randomMovies = {state.randomMovies} highRatedMovies={state.highRatedMovies} />
           }
         </div>
