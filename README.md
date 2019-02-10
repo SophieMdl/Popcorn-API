@@ -7,7 +7,8 @@ React, Redux
 
 ## Résumé
 
-Projet perso de librairie de films. Les films sont récupérés depuis l'API the movieDB : https://www.themoviedb.org/?language=fr
+Ceci est un application qui affiche une bibliothèque de films tirés d'une API.
+Projet perso pour mettre en pratique l'apprentissage de Redux. Les films sont récupérés depuis l'API the movieDB : https://www.themoviedb.org/?language=fr
 
 ## Start
 
