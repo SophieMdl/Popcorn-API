@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders MovieListItem html correctly 1`] = `
-<li
+<div
   className="movie-item row"
   onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  tabIndex={0}
 >
   <img
     alt="movie Title"
@@ -15,5 +18,5 @@ exports[`renders MovieListItem html correctly 1`] = `
   >
     movie Title
   </h6>
-</li>
+</div>
 `;
