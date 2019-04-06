@@ -16,25 +16,35 @@ class SearchBar extends React.Component {
   searchMovie = () => {
     const { searchText } = this.state
     const { currentMovie } = this.props
-    const searchUrl = `${URL.API_BASE}search/movie?${URL.API_KEY}&language=fr-FR&query=${searchText}`
+    const searchUrl = `${URL.API_BASE}search/movie?${
+      URL.API_KEY
+    }&language=fr-FR&query=${searchText}`
     console.log('searchUrl', searchUrl)
-    fetch(searchUrl).then(res => res.json()).then(data => {
-      if (data.total_results === 0) return
-      const searchResult = data.results[0]
-      if (currentMovie && searchResult.title === currentMovie.title) return
-      this.props.changeCurrentMovie(searchResult)
-    })
+    fetch(searchUrl)
+      .then(res => res.json())
+      .then(data => {
+        if (data.total_results === 0) return
+        const searchResult = data.results[0]
+        if (currentMovie && searchResult.title === currentMovie.title) return
+        this.props.changeCurrentMovie(searchResult)
+      })
   }
 
-  render () {
+  render() {
     return (
       <SearchBarStyled className="row input-field">
-        <form onSubmit={(e) => { e.preventDefault(); this.searchMovie() }}>
-          <input list="title-movie"
-            placeholder='search'
+        <form
+          onSubmit={e => {
+            e.preventDefault()
+            this.searchMovie()
+          }}
+        >
+          <input
+            list="title-movie"
+            placeholder="search"
             value={this.state.searchText || ''}
-            className='col s8'
-            onChange={(e) => this.changeTextSearch(e)}
+            className="col s8"
+            onChange={e => this.changeTextSearch(e)}
           />
           <button className="waves-effect waves-light btn-small">
             <i className="material-icons left">search</i>

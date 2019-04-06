@@ -6,18 +6,21 @@ import styled from 'styled-components'
 
 const RecommendedMovies = ({ movies }) => {
   const RecommendedMovies = styled.div`
-    background-color : #191c1f;
-    flex : 1;
-    padding : 2em 2em 0em 2em;
+    background-color: #191c1f;
+    flex: 1;
+    padding: 2em 2em 0em 2em;
   `
   return (
     <RecommendedMovies>
       <h5>Films similaires</h5>
       <div>
-        {movies.map(movie => <MovieListItem
-          movie={movie}
-          key={movie.id}
-          changeCurrentMovie={actions.changeCurrentMovie} />)}
+        {movies.map(movie => (
+          <MovieListItem
+            movie={movie}
+            key={movie.id}
+            changeCurrentMovie={actions.changeCurrentMovie}
+          />
+        ))}
       </div>
     </RecommendedMovies>
   )

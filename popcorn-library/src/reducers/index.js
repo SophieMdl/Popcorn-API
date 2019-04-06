@@ -19,7 +19,10 @@ const reducer = (state = initialState, action) => {
       const highRatedMovies = moviesList.sort(bestSort).slice(0, 5)
       for (let i = 0; randomMovies.length < 5; i++) {
         const n = Math.floor(Math.random() * moviesList.length)
-        if (!randomMovies.some(m => m.id === moviesList[n].id) && !highRatedMovies.some(m => m.id === moviesList[n].id)) {
+        if (
+          !randomMovies.some(m => m.id === moviesList[n].id) &&
+          !highRatedMovies.some(m => m.id === moviesList[n].id)
+        ) {
           randomMovies.push(moviesList[n])
         }
       }

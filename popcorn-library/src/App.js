@@ -14,14 +14,14 @@ import { darkTheme } from './theme/darkTheme.js'
 import 'materialize-css/dist/css/materialize.min.css'
 
 class App extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = store.getState()
     store.subscribe(() => {
       this.setState(store.getState())
     })
   }
-  componentDidMount () {
+  componentDidMount() {
     const url = `${URL.API_BASE}discover/movie?language=fr&include_adult=false&${URL.API_KEY}`
     fetch(url)
       .then(res => res.json())
@@ -30,18 +30,17 @@ class App extends Component {
       })
   }
 
-  render () {
+  render() {
     const state = this.state
     return (
       <ThemeProvider theme={darkTheme}>
         <div>
-          <Header
-            movie = {state.currentMovie}
-          />
-          {state.currentMovie
-            ? <MovieDetails movie = {state.currentMovie} recommendedMovies= {state.recommendedMovies} />
-            : <Home randomMovies = {state.randomMovies} highRatedMovies={state.highRatedMovies} />
-          }
+          <Header movie={state.currentMovie} />
+          {state.currentMovie ? (
+            <MovieDetails movie={state.currentMovie} recommendedMovies={state.recommendedMovies} />
+          ) : (
+            <Home randomMovies={state.randomMovies} highRatedMovies={state.highRatedMovies} />
+          )}
         </div>
       </ThemeProvider>
     )

@@ -5,7 +5,7 @@ import { HomeMovieStyled, ImgMovie } from '../style/homeMovieStyle.js'
 
 const randomMovie = ({ movie }) => {
   return (
-    <HomeMovieStyled onClick = {() => actions.changeCurrentMovie(movie)}>
+    <HomeMovieStyled onClick={() => actions.changeCurrentMovie(movie)}>
       <ImgMovie alt={movie.title} src={`${URL.IMAGE_BASE}${movie.poster_path}`} />
       {movie.title}
     </HomeMovieStyled>

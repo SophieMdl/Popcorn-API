@@ -25,10 +25,12 @@
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint . --ignore-pattern '/coverage/'",
     "lint:css": "stylelint 'src/style/**/*.css'",
-    "lint:fix": "eslint --fix 'src/*/*.js' . && stylelint --fix 'src/style/*.css'"
+    "lint:fix": "eslint --fix 'src/*/*.js' . && stylelint --fix 'src/style/*.css'",
+    "prettify": "prettier 'src/*/*.js'"
   },
   "devDependencies": {
     "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.16.4",
     "stylelint": "^9.3.0",
     "stylelint-config-standard": "^18.2.0"
   },
