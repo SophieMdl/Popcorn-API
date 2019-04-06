@@ -9,10 +9,8 @@ const Header = (props) => {
     <HeaderStyled>
       <Logo changeCurrentMovie={actions.changeCurrentMovie} />
       <SearchBar
-        moviesTitles={props.moviesTitles}
-        searchText={props.searchText}
-        searchMovie={actions.searchMovie}
-        changeTextSearch={actions.changeTextSearch}
+        changeCurrentMovie={actions.changeCurrentMovie}
+        movie = {props.currentMovie}
       />
     </HeaderStyled>
   )
