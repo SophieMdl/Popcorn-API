@@ -2,7 +2,6 @@ const initialState = {
   moviesList: [],
   currentMovie: undefined,
   moviesTitle: [],
-  searchText: '',
   randomMovies: [],
   highRatedMovies: [],
   recommendedMovies: []
@@ -52,16 +51,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         searchText: action.currentSearchText
       }
-    case 'SEARCH_MOVIE':
-      const searchedMovie = state.moviesList.find(m =>
-        m.title === action.searchText
-      )
-      if (searchedMovie === undefined) return
-      if (state.currentMovie && searchedMovie.title === state.currentMovie.title) return
-      return {
-        ...state,
-        currentMovie: searchedMovie
-      }
+
     default:
       return state
   }

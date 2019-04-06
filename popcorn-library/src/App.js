@@ -36,8 +36,7 @@ class App extends Component {
       <ThemeProvider theme={darkTheme}>
         <div>
           <Header
-            moviesTitles={state.moviesTitle}
-            searchText={state.searchText}
+            movie = {state.currentMovie}
           />
           {state.currentMovie
             ? <MovieDetails movie = {state.currentMovie} recommendedMovies= {state.recommendedMovies} />
