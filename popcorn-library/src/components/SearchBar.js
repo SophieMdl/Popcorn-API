@@ -13,13 +13,11 @@ class SearchBar extends React.Component {
     })
   }
 
-  searchMovie = () => {
+  searchMovie = e => {
+    e.preventDefault()
     const { searchText } = this.state
     const { currentMovie } = this.props
-    const searchUrl = `${URL.API_BASE}search/movie?${
-      URL.API_KEY
-    }&language=fr-FR&query=${searchText}`
-    console.log('searchUrl', searchUrl)
+    const searchUrl = `${URL.API_BASE}search/movie?${URL.API_KEY}&language=fr-FR&query=${searchText}`
     fetch(searchUrl)
       .then(res => res.json())
       .then(data => {
@@ -33,12 +31,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <SearchBarStyled className="row input-field">
-        <form
-          onSubmit={e => {
-            e.preventDefault()
-            this.searchMovie()
-          }}
-        >
+        <form onSubmit={e => this.searchMovie(e)}>
           <input
             list="title-movie"
             placeholder="search"

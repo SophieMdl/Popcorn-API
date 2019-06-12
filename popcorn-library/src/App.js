@@ -17,17 +17,14 @@ class App extends Component {
   constructor() {
     super()
     this.state = store.getState()
-    store.subscribe(() => {
-      this.setState(store.getState())
-    })
+    store.subscribe(() => this.setState(store.getState()))
   }
+
   componentDidMount() {
     const url = `${URL.API_BASE}discover/movie?language=fr&include_adult=false&${URL.API_KEY}`
     fetch(url)
       .then(res => res.json())
-      .then(movies => {
-        actions.loadMovies(movies.results)
-      })
+      .then(movies => actions.loadMovies(movies.results))
   }
 
   render() {

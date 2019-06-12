@@ -26,9 +26,7 @@ const youtubeKey = movieId => {
 }
 
 const recommendedMoviesArray = movieId => {
-  const urlRecommended = `${URL.API_BASE}movie/${movieId}/recommendations?${
-    URL.API_KEY
-  }&language=fr`
+  const urlRecommended = `${URL.API_BASE}movie/${movieId}/recommendations?${URL.API_KEY}&language=fr`
   return new Promise(resolve =>
     window
       .fetch(urlRecommended)
@@ -40,6 +38,7 @@ const recommendedMoviesArray = movieId => {
       })
   )
 }
+
 const loadDataVideo = movieId =>
   Promise.all([youtubeKey(movieId), recommendedMoviesArray(movieId)]).then(values => {
     actions.loadCurrentMovieData(values)
