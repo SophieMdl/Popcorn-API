@@ -5,9 +5,5 @@ jobs:
       - image: circleci/ruby:2.6.3
     steps:
       - checkout
-      - run: 
-          name: Install project dependencies
-          command: bin/install
-      -run: 
-        name: Test the project
-        command: bundle exec rspec hello_world_spec.rb
+      - run:
+          name: echo 'hello world'
